@@ -1,7 +1,5 @@
 import React from 'react';
 
-import '../styles.css';
-
 import { getKeyForNote } from '../../tools/marker';
 export class Piano extends React.Component {
   render() {

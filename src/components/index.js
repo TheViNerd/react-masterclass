@@ -14,7 +14,7 @@ class App extends React.Component {
       <div className="App">
         <Subscribe to={[KeysContainer, RoomContainer]}>
           {(keys, room) => (
-            <Piano keys={keys} room={room} toggle={this.toggle} />
+            <Piano keys={keys} room={room} />
           )}
         </Subscribe>
       </div>
