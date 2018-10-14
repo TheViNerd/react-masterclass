@@ -1,15 +1,21 @@
-import React from 'react';
+import React from "react";
 
-import { getKeyForNote } from '../../tools/marker';
+import { getKeyForNote } from "../../tools/marker";
 export class Piano extends React.Component {
   render() {
+    const { keys } = this.props;
     return (
       <div className="Piano">
         <ul>
           {this.props.keys.state.notes.map(note => (
-            <li 
-              key={note.name} 
-              className={`${note.name} ${note.active?'active':''} ${note.name.includes('s')?'black':'white'}`}
+            <li
+              key={note.name}
+              onMouseDown={() => keys.toggleNote(note.name, true, true)}
+              onMouseOut={() => keys.toggleNote(note.name, false, true)}
+              onMouseUp={() => keys.toggleNote(note.name, false, true)}
+              className={`${note.name} ${note.active ? "active" : ""} ${
+                note.name.includes("s") ? "black" : "white"
+              }`}
               style={
                 note.active
                   ? {
@@ -20,17 +26,17 @@ export class Piano extends React.Component {
                   : null
               }
             >
-              <p 
+              <p
                 className="text"
-                style={note.active ? { color: 'white' } : null}
+                style={note.active ? { color: "white" } : null}
               >
-                {note.name.includes('s') ? '' : getKeyForNote(note.name)}
+                {note.name.includes("s") ? "" : getKeyForNote(note.name)}
               </p>
             </li>
           ))}
         </ul>
       </div>
-    )
+    );
   }
 }
 
