@@ -6,7 +6,12 @@ export default class KeysContainer extends Container {
       .reverse()
       .map(note => ({ name: note, color: "red", active: false }))
   };
-
+  /**
+   * This will toggle notes and keys.
+   * @param {string} key
+   * @param {string} color
+   * @param {boolean} active
+   */
   toggleNote = (key, color, active) => {
     this.setState({
       notes: this.state.notes.map(note => {

@@ -13,8 +13,9 @@ const mapping = {
   j: 'as',
   m: 'b'
 };
+
 /**
- * 
+ * gets a key for the note from mapping object
  * @param {string} note 
  */
 export const getKeyForNote = note =>
@@ -22,4 +23,8 @@ export const getKeyForNote = note =>
     .find(key => mapping[key] === note.toLowerCase())
     .toUpperCase();
 
+/**
+ * 
+ * @param {string} key 
+ */
 export const getNoteForKey = key => mapping[key.toLowerCase()];  
